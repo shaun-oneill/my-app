@@ -15,7 +15,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/users')
+        fetch('https://my-json-server.typicode.com/shaun-oneill/database/characters')
             .then(response => response.json())
             .then(users => this.setState({ heroes: users }));
     }
@@ -27,14 +27,14 @@ class App extends Component {
     render() {
         const { heroes, searchField } = this.state;
         const filteredHeroes = heroes.filter(hero => {
-            return hero.name.toLowerCase().includes(searchField.toLowerCase());
+            return hero.alias.toLowerCase().includes(searchField.toLowerCase());
         })
 
         return !heroes.length ?
             <h1>Loading..</h1> :
             (
                 <div className="tc">
-                    <h1>Super Friends</h1>
+                    <h1>Hero Finder</h1>
                     <SearchBox searchChange={this.onSearchChange} />
                     <Scroll>
                         <CardList heroes={filteredHeroes} />

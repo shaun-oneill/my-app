@@ -11,8 +11,8 @@ const CardList = ( {heroes} ) => {
                         <Card
                             key={heroes[i].id}
                             name={heroes[i].name}
-                            username={heroes[i].username}
-                            email={heroes[i].email}
+                            alias={heroes[i].alias}
+                            image={heroes[i].image}
                         />
                     );
                 })
